@@ -23,8 +23,7 @@ if st.session_state.prompt:
                 max_tokens=100,
                 top_p=1,
                 frequency_penalty=0,
-                presence_penalty=0,
-                stop=["\n"],
+                presence_penalty=0
             )
             st.write(response.choices[0].text)
             with st.expander("Full Response"):
