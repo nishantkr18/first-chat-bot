@@ -2,3 +2,6 @@ openai
 python-dotenv
 streamlit
 streamlit-scrollable-textbox
+langchain
+sentence_transformers
+chromadb
