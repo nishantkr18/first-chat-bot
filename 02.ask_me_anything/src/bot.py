@@ -13,11 +13,12 @@ class Bot:
     """
     The bot class.
     """
-    def __init__(self):
+    def __init__(self, vectorstore):
         self.llm = OpenAI(temperature=0, max_tokens=100, verbose=True)
         self.chain = None
+        self._feed_data(vectorstore)
 
-    def feed_data(self, vectorstore):
+    def _feed_data(self, vectorstore):
         """
         Creating a RetrievalQA chain with the vectorstore.
         """
