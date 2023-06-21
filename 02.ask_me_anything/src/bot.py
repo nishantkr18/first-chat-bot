@@ -3,18 +3,21 @@ The main bot file.
 """
 
 import textwrap
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.callbacks import get_openai_callback
 from openai.error import AuthenticationError
 
+
 class Bot:
     """
     The bot class.
     """
+
     def __init__(self, vectorstore):
-        self.llm = OpenAI(temperature=0, max_tokens=100, verbose=True)
+        self.llm = ChatOpenAI(model='gpt-3.5-turbo',
+                              temperature=0, max_tokens=100, verbose=True)
         self.chain = None
         self._feed_data(vectorstore)
 

@@ -16,7 +16,6 @@ if api_key:
     # Sets api key as environment variable.
     openai.api_key = api_key
     st.success('API key set successfully! Now you can ask questions', icon='🔑')
-    print(api_key)
 
 text_input = st.text_input(
     'prompt', key="prompt", placeholder="Enter your question here", label_visibility="collapsed")
@@ -26,13 +25,14 @@ if text_input:
     with st.spinner("Thinking..."):
         try:
             response = openai.Completion.create(
-                engine="text-davinci-001",
-                prompt=f"Q: {text_input}\nA:",
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system",
+                        "content": "You are a helpful assistant. Answer in brief."},
+                    {"role": "user", "content": text_input}
+                ],
                 temperature=0.9,
-                max_tokens=100,
-                top_p=1,
-                frequency_penalty=0,
-                presence_penalty=0
+                max_tokens=100
             )
             st.write(response.choices[0].text)
             with st.expander("Full Response"):
