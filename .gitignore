@@ -1,5 +1,7 @@
 # Local test notebook
-test.ipynb
+test*
+.chroma
+*.json
 
 # Local LLM model
 llm
