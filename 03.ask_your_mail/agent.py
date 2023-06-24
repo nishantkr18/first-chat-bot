@@ -34,10 +34,13 @@ class Bot():
         #     os.remove("token.json")
 
         print("Connecting to Gmail API...")
+        def current_path(file_name):
+            return os.path.join(os.path.dirname(__file__), file_name)
+
         credentials = get_gmail_credentials(
-            token_file="token.json",
+            token_file=current_path("token.json"),
             scopes=["https://www.googleapis.com/auth/gmail.readonly"],
-            client_secrets_file="credentials.json",
+            client_secrets_file=current_path("credentials.json"),
         )
         self.api_resource = build_resource_service(credentials=credentials)
         print("Connected to Gmail API!")

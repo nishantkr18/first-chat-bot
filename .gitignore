@@ -2,6 +2,7 @@
 test*
 .chroma
 .vscode
+token.json
 
 # Local LLM model
 llm

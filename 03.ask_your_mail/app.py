@@ -59,9 +59,7 @@ def main():
                         st.write(query)
                     relevant_data = st.session_state['bot'].query_gmail(query)
                     with st.expander('Reference emails'):
-                        print(type(relevant_data))
                         stx.scrollableTextbox(relevant_data, height=300)
-                        print(relevant_data)
                     response = st.session_state['bot'].ask(question, relevant_data)
                     print(cb)
                 st.write(response)

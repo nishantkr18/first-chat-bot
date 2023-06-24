@@ -1,7 +1,12 @@
-openai
-python-dotenv
-streamlit
-streamlit-scrollable-textbox
-langchain
+openai==0.27.8
+pydantic==1.10.8
+python-dotenv==1.0.0
+streamlit==1.22.0
+streamlit_scrollable_textbox==0.0.3
+langchain==0.0.212
 sentence_transformers
 chromadb
+beautifulsoup4==4.12.2
+google-auth-httplib2
+google-auth-oauthlib
+google-api-python-client
