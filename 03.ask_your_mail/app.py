@@ -25,13 +25,17 @@ import openai
 
 def main():
     load_dotenv()
-    os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
-    openai.api_key = os.getenv("OPENAI_API_KEY")
     langchain.debug = True
 
     st.title("Ask questions to your emails!")
 
     if st.session_state.get('process_stage') is None:
+        api_key = st.text_input('OpenAI api key:', key='api_key', type='password')
+        if st.button('Set api key'):
+            # Sets api key as environment variable.
+            os.environ['OPENAI_API_KEY'] = api_key
+            openai.api_key = api_key
+
         if st.button('Connect to Gmail!'):
             st.session_state['process_stage'] = 'lets_start'
             st.experimental_rerun()
