@@ -14,7 +14,6 @@ from dotenv import load_dotenv
 from langchain import OpenAI
 from langchain.agents import initialize_agent, AgentType
 from langchain.callbacks import get_openai_callback
-from customllm import customllm
 import langchain
 from agent import Bot
 import base64
