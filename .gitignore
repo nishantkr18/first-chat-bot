@@ -1,7 +1,7 @@
 # Local test notebook
 test*
 .chroma
-*.json
+.vscode
 
 # Local LLM model
 llm
